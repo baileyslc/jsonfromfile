@@ -1,0 +1,28 @@
+//code from jquery and code school examples CC license 
+$(document).ready(function () {
+  /* $('#jsontest').on('click', 'button', function(){
+       $.get('http://qcloudapi.qcloudpro.com/helloworld/test', function(response) {
+               $('#event').text(response).fadeIn();
+           });    
+    });*/
+/*
+
+    function jsonpCallback(data){
+        $('#jsonpResult').text(data.message);
+    }*/
+    
+    
+//this works    http://api.jquery.com/jquery.getjson/
+var jqxhr = $.getJSON( "js/hellotest.json", function() {
+  console.log( "success" );
+})
+  .done(function(data) {
+    console.log( "second success" );
+  })
+  .fail(function() {
+    console.log( "error" );
+  })
+  .always(function(result) {
+    $('#event').text(result.Success);
+  });
+});
